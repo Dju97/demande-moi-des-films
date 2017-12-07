@@ -98,7 +98,7 @@ class MovieLens:
     @staticmethod
     def load_movies():
         movies = dict()
-        with open('./ml-latest-small/movies-clean.csv', 'rt') as moviesFile:
+        with open('./ml-latest-small/movies-clean.csv', 'rt',encoding = 'utf8') as moviesFile:
             raw_movies = csv.reader(moviesFile, delimiter=',')
             is_first = True
             for movie in raw_movies:
