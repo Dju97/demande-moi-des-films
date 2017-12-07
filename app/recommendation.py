@@ -78,9 +78,9 @@ class Recommendation:
 
     # Compute the similarity between a user and all the users in the data set
     def compute_all_similarities(self, user):
-            similarities = []
-            for users in self.test_users:
-                similarities.append((get_similarity(users,user),users))
+        similarities = []
+        for users in self.test_users:
+            similarities.append((get_similarity(users,user),users))
         return similarities
 
     def get_best_user(self,user):
