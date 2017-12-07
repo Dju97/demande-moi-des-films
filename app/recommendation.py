@@ -62,18 +62,18 @@ class Recommendation:
             if rating.user == best_user and rating.is_appreciated == True :
                 list_movies.append(rating.movie)
         movie = choice(list_movies).title
-        return "Vos recommandations : " + ", ".join([movie])
+        return "Vos recommandations : " + ", " + [movie.title for movie in list_movies]
 
     # Compute the similarity between two users
     @staticmethod
     def get_similarity(user_a, user_b):
         liste=[]
-            for rating1 in self.ratings:
-                if rating1.user == user_a :
-                     movie = rating1.movie
-                     for rating2 in self.ratings:
-                         if rating2.user == user_b and rating2.movie == movie:
-                             liste.append(int(rating1.is_appreciated == rating2.is_appreciated))
+        for rating1 in self.ratings:
+            if rating1.user == user_a :
+                 movie = rating1.movie
+                 for rating2 in self.ratings:
+                     if rating2.user == user_b and rating2.movie == movie:
+                         liste.append(int(rating1.is_appreciated == rating2.is_appreciated))
         return sum(liste)/len(liste)
 
     # Compute the similarity between a user and all the users in the data set
